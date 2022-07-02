@@ -1,3 +1,7 @@
+import React, { useState, useEffect } from "react";
+import './styles.css';
+
+
 const App = () => {
     const [add, setAdd] = useState(1);
     const [times, setTimes] = useState(2);
@@ -45,7 +49,7 @@ const App = () => {
               current = current.sibling;
               continue;
             }
-            current == current.return;
+            current = current.return;
             continue;
           }
           if (arr.indexOf(current) !== -1) {
