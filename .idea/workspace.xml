@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b517193d-c876-41ae-8764-fb014d1231b0" name="Changes" comment="" />
+    <list default="true" id="b517193d-c876-41ae-8764-fb014d1231b0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/contentscript.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/background.js" beforeDir="false" afterPath="$PROJECT_DIR$/background.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/manifest.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,6 +21,16 @@
     <setting file="file://$PROJECT_DIR$/../../../Miscellaneous Work/js_practice/playgrounds/playground_h.js" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "last_opened_file_path": "C:/Users/Filoramo/Documents/Software Engineering/Projects - JavaScript/Codesmith Work/Codesmith Open Source Product/FlapStack"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Filoramo\Documents\Software Engineering\Projects - JavaScript\Codesmith Work\Codesmith Open Source Product\FlapStack" />
+    </key>
+  </component>
   <component name="TaskManager">
     <servers />
   </component>
