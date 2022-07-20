@@ -11,7 +11,8 @@
     "content_scripts": [
         {
         "matches": ["http://*/*"],
-        "js": ["contentscript.js"]
+        "js": ["contentscript.js"],
+        "css": ["src/styles.css"]
         }
     ],
     "web_accessible_resources": [
@@ -22,6 +23,7 @@
         }
     ],
     "permissions": ["storage", "activeTab", "scripting", "tabs"], 
+    "host_permissions": ["<all_urls>"],
     "action": {
         "default_popup": "popup.html", 
         "default_icon": {
