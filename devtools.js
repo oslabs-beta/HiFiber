@@ -1,4 +1,4 @@
-chrome.devtools.panels.create("FlapStack",
+chrome.devtools.panels.create("HiFiber",
     "/images/get_started16.png",
     "panel.html",
     () => {}
