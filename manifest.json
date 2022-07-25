@@ -12,9 +12,7 @@
         {
         "matches": ["http://*/*"],
         "js": ["contentscript.js"],
-        "css": ["src/styles.css"],
-        "run_at": "document_idle"
-
+        "css": ["src/styles.css"]
         }
     ],
     "web_accessible_resources": [

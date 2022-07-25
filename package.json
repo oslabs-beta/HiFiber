@@ -2,6 +2,7 @@
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
     "autoprefixer": "10.4.5",
+    "docker": "^1.0.0",
     "eslint": "^8.20.0",
     "install": "0.13.0",
     "nodemon": "^2.0.19",
