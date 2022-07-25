@@ -1,9 +1,9 @@
 import React, { useState, useEffect, Component } from 'react';
 import ReactDOM from 'react-dom/client';
 import './styles.css';
-import { rootNode } from '../script';
-console.log('This is the root node from the bundled App.jsx');
-console.log(rootNode);
+// import { rootNode } from '../script';
+// console.log('This is the root node from the bundled App.jsx');
+// console.log(rootNode);
 
 
 const App = () => {
@@ -12,8 +12,8 @@ const App = () => {
   const [divide, setDivide] = useState(null);
   const [subtract, setSubtract] = useState(100);
   const [variable, setVariable] = useState(0);
-  // const newObj = window.document.body.children[0][0]
-  // const newObj = <App />;
+  //const newObj = window.document.body.children[0][0]
+  const newObj = <App />;
   const [array, setArray] = useState([]);
   const [array2, setArray2] = useState([]);
   const [version, setVersion] = useState('Simple');
@@ -24,7 +24,7 @@ const App = () => {
       //NOT IMPORTANT for DEV TOOL
       if (variable > 1) {
         //set current to the root fiber node
-        let current = rootNode;
+        let current = newObj._owner;
         //Sets the orignial fiber node, so we can know we hit the end of the while loop
         const head = current;
 
