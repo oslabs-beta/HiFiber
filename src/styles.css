@@ -134,3 +134,23 @@ body {
 }
 
 
+.textBox{
+  border: 2px solid rgb(11, 8, 0);
+  height: 500%;
+  width: 400%;
+  border-radius: 5%;
+  color: rgb(255, 250, 250);
+  /* background-color: grey; */
+  background-color: #282727;
+  box-shadow:
+    0 0 2px .25px rgb(255, 255, 255),
+    /* 0 0 25px 1px orange, */
+    0 0 2px .75px rgb(84, 83, 83);
+  /* margin-top: 20px; */
+  font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  z-index: 0;
+  opacity: 1;
+  grid-column-end: 8;
+
+}
