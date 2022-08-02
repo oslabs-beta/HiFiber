@@ -7,8 +7,8 @@ console.log('This is the root node from the contentscript.js');
 // CAN WE IMPORT THE ROOT NODE FROM SCRIPT.JS AND EXPORT IT, OR MOUNT IT, TO THE DOM? TO THE APP?
 
 // const mainPage = document.getElementsByTagName('body')[0];
-//
-// // WHAT IF THIS WAS THE BUNDLE.JS?
+
+// WHAT IF THIS WAS THE BUNDLE.JS?
 // const mountedScript = document.createElement('script');
 // mountedScript.setAttribute('type', 'module');
 // mountedScript.setAttribute('src', 'chrome-extension://gbaoapbpjbfkjacnebobjbpmnnidhjno/script.js');
