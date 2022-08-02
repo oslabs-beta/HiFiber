@@ -1,18 +1,34 @@
 body {
+<<<<<<< HEAD
   background-color: rgb(31, 31, 31);
 }
 
 .nodes {
+=======
+  background-color: rgb(31, 31, 31)  
+}
+
+.nodes {
+  /* border-color: rgb(31, 0, 187); */
+>>>>>>> dev
   border: 2px solid rgb(11, 8, 0);
   height: 100%;
   width: 100%;
   border-radius: 15%;
   color: rgb(255, 250, 250);
+<<<<<<< HEAD
+=======
+  /* background-color: grey; */
+>>>>>>> dev
   background-color: #636060;
   box-shadow:
     0 0 2px .25px rgb(255, 255, 255),
     /* 0 0 25px 1px orange, */
     0 0 2px .75px rgb(84, 83, 83);
+<<<<<<< HEAD
+=======
+  /* margin-top: 20px; */
+>>>>>>> dev
   font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
   font-size: 10%;
   z-index: 0;
@@ -23,14 +39,24 @@ body {
 }
 
 .nodes:hover {
+<<<<<<< HEAD
   transition: all .1s ease-in-out;
+=======
+  /* transition: all .4s ease-in-out; */
+>>>>>>> dev
   transform: scale(1.2);
   /* background-color: rgb(189, 189, 184); */
 }
 
+<<<<<<< HEAD
 /* .textbox1 {
   border-color: rgb(118, 80, 255); 
 } */
+=======
+.textbox1 {
+  /* border-color: rgb(118, 80, 255); */
+}
+>>>>>>> dev
 
 .container {
   display: grid;
@@ -41,6 +67,7 @@ body {
 }
 
 @keyframes blinker {
+<<<<<<< HEAD
   0% {
       opacity: 0}
   80% {
@@ -60,10 +87,35 @@ body {
   }
   100% {
       opacity: 1;
+=======
+
+  0% {
+      opacity: 0}
+  80%{
+      opacity: 0}
+  90%{
+      opacity: 1;
+  }    
+
+}
+
+@keyframes example{
+  0% {
+      width: 0;
+      opacity: 0}
+  80%{
+      width: 0;
+      opacity: 0
+  }
+  100%{
+      opacity: 1;
+
+>>>>>>> dev
       width: 100%;
   }    
 }
 
+<<<<<<< HEAD
 @keyframes example2 {
       0% {
           height: 0;
@@ -74,6 +126,19 @@ body {
       }
       100% {
           opacity: 1;
+=======
+@keyframes example2{
+      0% {
+          height: 0;
+          opacity: 0}
+      80%{
+          height: 0;
+          opacity: 0
+      }
+      100%{
+          opacity: 1;
+  
+>>>>>>> dev
           height: 100%;
       }      
 }
@@ -127,6 +192,7 @@ body {
 }
 
 
+<<<<<<< HEAD
 .textBox {
   border: 2px solid rgb(11, 8, 0);
   height: 500%;
@@ -146,3 +212,5 @@ body {
   opacity: 1;
   grid-column-end: 8;
 }
+=======
+>>>>>>> dev

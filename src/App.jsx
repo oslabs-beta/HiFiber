@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState, useEffect, useRef, Component } from 'react';
 import './styles.css';
 
@@ -6,17 +7,27 @@ import './styles.css';
 // console.log(rootNode);
 
 
+=======
+import React, { useState, useEffect, Component } from 'react';
+import ReactDOM from 'react-dom';
+import './styles.css';
+
+>>>>>>> dev
 const App = () => {
   const [add, setAdd] = useState(1);
   const [times, setTimes] = useState(2);
   const [divide, setDivide] = useState(null);
   const [subtract, setSubtract] = useState(100);
   const [variable, setVariable] = useState(0);
+<<<<<<< HEAD
   //const newObj = window.document.body.children[0][0]
+=======
+>>>>>>> dev
   const newObj = <App />;
   const [array, setArray] = useState([]);
   const [array2, setArray2] = useState([]);
   const [version, setVersion] = useState('Simple');
+<<<<<<< HEAD
   const nullArrTracker = useRef(0);
   const [textBox, setTextBox] = useState(null);
   const [boxVisibility, setBoxVisibility] = useState("hidden");
@@ -34,10 +45,19 @@ const App = () => {
     if (version === 'Simple') {
       //NOT IMPORTANT for DEV TOOL
       if (variable == 2) {
+=======
+
+  useEffect(() => {
+    //Qualifier to only run if the correct version is clicked
+    if (version === 'Simple') {
+      //NOT IMPORTANT for DEV TOOL
+      if (variable > 1) {
+>>>>>>> dev
         //set current to the root fiber node
         let current = newObj._owner;
         //Sets the orignial fiber node, so we can know we hit the end of the while loop
         const head = current;
+<<<<<<< HEAD
         console.log(newObj)
         
         //creating an object class called NodeMaker
@@ -60,6 +80,21 @@ const App = () => {
         let nodeTracker = [];
         let arr = [head];
        
+=======
+
+        class NodeMaker {
+          constructor(key, x, y, debug) {
+            this.key = key;
+            this.x = x;
+            this.y = y;
+            this.debug = debug;
+          }
+        }
+        let nodeMade = null;
+        let nodeTracker = [];
+        let arr = [head];
+
+>>>>>>> dev
         //create an array Lines
         //insert the first line into the array.
         let lineList = [
@@ -74,7 +109,10 @@ const App = () => {
         ];
         //create a list of nodes
         //insert the first node
+<<<<<<< HEAD
         //nodeList is an array of buttons rendered to the screen
+=======
+>>>>>>> dev
         let nodeList = [
           <button
             key={current.key}
@@ -101,12 +139,18 @@ const App = () => {
         let xDepth = 1;
         let previousX = 0;
         let initX = 1;
+<<<<<<< HEAD
         let i = 0;
         
+=======
+        //only compare
+
+>>>>>>> dev
         //as long as we're not at the top keep going
         while (current !== head) {
           //if the current node does not exist in the grid
           if (arr.indexOf(current) === -1) {
+<<<<<<< HEAD
             
             if (current.key){
               nullArrTracker.current = nullArrTracker.current + 1;
@@ -154,6 +198,23 @@ const App = () => {
               <button
                 key={current.key}
                 id={i}
+=======
+            nodeMade = new NodeMaker(
+              current.key,
+              xDepth,
+              yDepth,
+              current._debugID
+            );
+            nodeTracker.push(nodeMade);
+            console.log(initX, xDepth, current.key);
+            arr.push(current);
+
+            //push a button into the node list. Set the buttons x and y coordinates to the x and y depth
+            //Make the animation last as long as how deep in the tree this current node exist.
+            nodeList.push(
+              <button
+                key={current.key}
+>>>>>>> dev
                 className="nodes"
                 style={{
                   // opacity: 1,
@@ -165,13 +226,19 @@ const App = () => {
                   justifySelf: 'center ',
                   zIndex: '0',
                 }}
+<<<<<<< HEAD
 
+=======
+>>>>>>> dev
               >
                 {current.type != null ? current.type : ''}{' '}
                 {current.key != null ? current.key : 'Text'}{' '}
               </button>
             );
+<<<<<<< HEAD
             i++;
+=======
+>>>>>>> dev
             //if the current node has a child
             if (current.child) {
               //set initial x to current xdepth
@@ -207,21 +274,35 @@ const App = () => {
 
               xDepth++;
               // nodeList.push(<div className="lineHorizontal"></div>);
+<<<<<<< HEAD
+=======
+
+>>>>>>> dev
               continue;
             }
             if (!current.sibling && !current.child) {
               previousX = xDepth;
               current = current.return;
               initX = nodeTracker.filter(
+<<<<<<< HEAD
                 (el) => el.key === current.key
               )[0].x;
+=======
+                (el) => el.debug === current._debugID
+              )[0].x;
+
+              console.log('Matt', initX);
+>>>>>>> dev
               yDepth--;
               continue;
             }
           }
           if (arr.indexOf(current) !== -1) {
             if (current.sibling) {
+<<<<<<< HEAD
               console.log(current.key, initX)
+=======
+>>>>>>> dev
               // if (current.key == 'TopOf') {
               //   initX = 1;
               //   console.log(initX, xDepth);
@@ -242,6 +323,10 @@ const App = () => {
 
               xDepth++;
               // nodeList.push(<div className="lineHorizontal"></div>);
+<<<<<<< HEAD
+=======
+
+>>>>>>> dev
               continue;
             }
 
@@ -250,6 +335,7 @@ const App = () => {
           }
         }
 
+<<<<<<< HEAD
         let variable=null;
 
         // console.log(nodeList)
@@ -281,13 +367,22 @@ const App = () => {
         setArray(nodeList);
         setArray2(lineList);
       } 
+=======
+        setArray(nodeList);
+        setArray2(lineList);
+      }
+>>>>>>> dev
     }
   }, [add]);
 
   useEffect(() => {
     if (version === 'Full')
       if (variable > 1) {
+<<<<<<< HEAD
         let current =  newObj._owner;
+=======
+        let current = newObj._owner;
+>>>>>>> dev
         const head = current;
         let arr = [head];
         let lineList = [
@@ -358,7 +453,11 @@ const App = () => {
               current.key,
               xDepth,
               yDepth,
+<<<<<<< HEAD
               current._debugID,
+=======
+              current._debugID
+>>>>>>> dev
             );
             nodeTracker.push(nodeMade);
             nodeList.push(
@@ -420,6 +519,10 @@ const App = () => {
               );
               xDepth++;
               // nodeList.push(<div className="lineHorizontal"></div>);
+<<<<<<< HEAD
+=======
+
+>>>>>>> dev
               continue;
             }
             if (!current.sibling && !current.child) {
@@ -428,6 +531,10 @@ const App = () => {
               initX = nodeTracker.filter(
                 (el) => el.debug === current._debugID
               )[0].x;
+<<<<<<< HEAD
+=======
+              console.log(nodeTracker[0]);
+>>>>>>> dev
               yDepth--;
               continue;
             }
@@ -459,6 +566,7 @@ const App = () => {
       }
   }, [add]);
 
+<<<<<<< HEAD
   useEffect(()=>{
 if (add>1){
     setBoxVisibility("visible");
@@ -467,6 +575,8 @@ if (add>1){
 
   },[textBox])
 
+=======
+>>>>>>> dev
   useEffect(() => {
     setVariable((x) => x + 1);
   }, [add]);
@@ -492,7 +602,10 @@ if (add>1){
           </button>
           <button key="Subtract">Subtract</button>
         </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> dev
         <button
           onClick={() => {
             setAdd((x) => x + 1);
@@ -506,6 +619,7 @@ if (add>1){
         <div key="Contain" className="container">
           {array}
           {array2}
+<<<<<<< HEAD
           <button onClick={()=>setBoxVisibility("hidden")} className= 'textBox' style={{visibility: boxVisibility}}>{textBox}
           {/* <button onClick={()=>setBoxVisibility("hidden")}>Close</button> */}
           </button>
@@ -517,9 +631,20 @@ if (add>1){
       
       <div key="cat"></div>
 
+=======
+        </div>
+        <button key="Last"></button>
+      </div>
+      <div key="poop">HI</div>
+>>>>>>> dev
     </div>
   );
 };
 
+<<<<<<< HEAD
 
 export default App;
+=======
+export default App;
+
+>>>>>>> dev
