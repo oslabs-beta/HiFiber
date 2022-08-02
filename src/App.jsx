@@ -515,7 +515,7 @@ if (add>1){
 
       </div>
       
-      <div key="cat">HI</div>
+      <div key="cat"></div>
 
     </div>
   );
