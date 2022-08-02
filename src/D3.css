@@ -1,0 +1,89 @@
+body {
+  background-color: rgb(34, 34, 34);
+}
+svg {
+  display: block;
+  width: 800px;
+  height: 700px;
+  overflow: visible;
+}
+
+svg rect.selection {
+  stroke: none;
+}
+
+h1 {
+  color: white;
+  font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 40px;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+   margin-left: 105px;
+  padding-top: 30px; 
+  position: relative
+}
+
+h2 {
+  color: white;
+  font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+margin-left: 45px;
+  position: relative
+}
+
+#root {
+  background-color: 'black';
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  height: 100vh;
+  padding: 0 50px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+button {
+  width: 100px;
+  border: 1px solid black;
+  margin: 0 auto 5px;
+}
+
+video {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: auto;
+  width: 100%;
+}
+
+.fields {
+  margin-bottom: 1rem;
+}
+
+.field {
+  display: inline-block;
+  margin: 0 0.5em;
+}
+
+.field input {
+  margin-right: 0.5em;
+}
+
+.buttonComponent1 {
+    color: white;
+      font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 15px;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      margin-left: 45px;
+      position: relative
+}

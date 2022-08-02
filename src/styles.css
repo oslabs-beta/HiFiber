@@ -1,0 +1,136 @@
+body {
+  background-color: rgb(31, 31, 31)  
+}
+
+.nodes {
+  /* border-color: rgb(31, 0, 187); */
+  border: 2px solid rgb(11, 8, 0);
+  height: 100%;
+  width: 100%;
+  border-radius: 15%;
+  color: rgb(255, 250, 250);
+  /* background-color: grey; */
+  background-color: #636060;
+  box-shadow:
+    0 0 2px .25px rgb(255, 255, 255),
+    /* 0 0 25px 1px orange, */
+    0 0 2px .75px rgb(84, 83, 83);
+  /* margin-top: 20px; */
+  font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 10%;
+  z-index: 0;
+  opacity: 1;
+  transform:  scale(1);
+  /* animation-name: example;
+  animation-duration: 2s;   */
+}
+
+.nodes:hover {
+  /* transition: all .4s ease-in-out; */
+  transform: scale(1.2);
+  /* background-color: rgb(189, 189, 184); */
+}
+
+.textbox1 {
+  /* border-color: rgb(118, 80, 255); */
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(30, 50px);;
+  grid-template-rows: repeat(10, 50px);
+  row-gap: 8%;
+  column-gap: 2%;
+}
+
+@keyframes blinker {
+
+  0% {
+      opacity: 0}
+  80%{
+      opacity: 0}
+  90%{
+      opacity: 1;
+  }    
+
+}
+
+@keyframes example{
+  0% {
+      width: 0;
+      opacity: 0}
+  80%{
+      width: 0;
+      opacity: 0
+  }
+  100%{
+      opacity: 1;
+
+      width: 100%;
+  }    
+}
+
+@keyframes example2{
+      0% {
+          height: 0;
+          opacity: 0}
+      80%{
+          height: 0;
+          opacity: 0
+      }
+      100%{
+          opacity: 1;
+  
+          height: 100%;
+      }      
+}
+  
+.reverse {
+  animation-direction: reverse;
+}
+
+.lineHorizontal {
+  z-index: -1;
+  width: 100%;
+  /* animation-direction: alternate; */
+  /* transform: scale(-1, 1); */
+  /* height: .055px; */
+  align-self: center;
+  justify-self: end;
+  /* width: 400px; */
+  /* left: 50%; */
+  /* grid-column: 1 / 3; */
+  /* grid-row-start: 5;
+  grid-row-end: span 1; */
+  box-shadow:
+    0 0 1px .5px rgb(250, 117, 246),
+    /* 0 0 25px 1px orange, */
+    0 0 1px 1px rgb(250,
+      117,
+      246);
+  /* margin-top: 20px; */
+}
+
+.lineVertical {
+  z-index: -1;
+  height: 100%;
+  /* justify-self: center; */
+  width: .01px;
+  align-self: center;
+  justify-self: center;
+  /* width: 400px; */
+  /* left: 50%; */
+  /* grid-column: 1 / 1;
+  grid-row: 2 /7; */
+  /* grid-row-start: 5;
+  grid-row-end: span 1; */
+  box-shadow:
+    0 0 1px .5px rgb(101, 101, 248),
+    /* 0 0 25px 1px orange, */
+    0 0 1px 1px rgb(101,
+      101,
+      248);
+  /* margin-top: 20px; */
+}
+
+
