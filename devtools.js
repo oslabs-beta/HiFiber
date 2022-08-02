@@ -1,3 +1,11 @@
+<<<<<<< HEAD
+chrome.devtools.panels.create(
+  'HiFiber',
+  '/images/get_started16.png',
+  'panel.html',
+  () => {}
+);
+=======
 chrome.devtools.panels.create("HiFiber",
     "/images/get_started16.png",
     "panel.html",
@@ -13,3 +21,4 @@ chrome.devtools.panels.create("HiFiber",
 //     });
 
     
+>>>>>>> dev

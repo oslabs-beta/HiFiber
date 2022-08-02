@@ -3,7 +3,18 @@
   <component name="ChangeListManager">
     <list default="true" id="b517193d-c876-41ae-8764-fb014d1231b0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/build/bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/bundle.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/contentscript.js" beforeDir="false" afterPath="$PROJECT_DIR$/contentscript.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panel.html" beforeDir="false" afterPath="$PROJECT_DIR$/panel.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.jsx" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/contentscript.js" beforeDir="false" afterPath="$PROJECT_DIR$/contentscript.js" afterDir="false" />
+>>>>>>> dev
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,8 +42,14 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+<<<<<<< HEAD
+    "last_opened_file_path": "C:/Users/Filoramo/Documents/Software Engineering/Projects - JavaScript/Codesmith Work/Codesmith Solo Project/anglerfish",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.JavaScript Additions",
+=======
     "last_opened_file_path": "C:/Users/Filoramo/Documents/Software Engineering/Projects - JavaScript/Codesmith Work/Codesmith Open Source Product/FlapStack",
     "nodejs_package_manager_path": "npm",
+>>>>>>> dev
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -41,6 +58,19 @@
       <recent name="C:\Users\Filoramo\Documents\Software Engineering\Projects - JavaScript\Codesmith Work\Codesmith Open Source Product\FlapStack" />
     </key>
   </component>
+<<<<<<< HEAD
+  <component name="RunManager">
+    <configuration name="playground_h.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/../../../Miscellaneous Work/js_practice/playgrounds/playground_h.js" working-dir="$PROJECT_DIR$/../../../Miscellaneous Work/js_practice/playgrounds">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Node.js.playground_h.js" />
+      </list>
+    </recent_temporary>
+  </component>
+=======
+>>>>>>> dev
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -50,6 +80,15 @@
       <option name="presentableId" value="Default" />
       <updated>1657271390747</updated>
       <workItem from="1657271394681" duration="744000" />
+<<<<<<< HEAD
+      <workItem from="1658502658227" duration="266000" />
+      <workItem from="1658502941888" duration="3045000" />
+      <workItem from="1658511388326" duration="1348000" />
+      <workItem from="1658529948691" duration="6936000" />
+      <workItem from="1658699965556" duration="24000" />
+      <workItem from="1658705312392" duration="18390000" />
+=======
+>>>>>>> dev
     </task>
     <servers />
   </component>
