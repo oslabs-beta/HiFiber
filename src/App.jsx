@@ -47,12 +47,15 @@ const tempArr=[];
         //creating an object class called NodeMaker
         //these properties are prototypes for the class Nodemaker 
         class NodeMaker {
-          constructor(key, x, y, duration, tag) {
+          constructor(key, x, y, duration, tag, lineNumber, parent, type) {
             this.key = key;
             this.x = x;
             this.y = y;
             this.duration= duration;
-            this.tag=tag
+            this.tag = tag;
+            this.lineNumber = lineNumber;
+            this.parent = parent;
+            this.type = type;
           }
         }
 
@@ -106,6 +109,7 @@ const tempArr=[];
         //only compare
         //as long as we're not at the top keep going
         while (current !== head) {
+         
           //if the current node does not exist in the grid
           if (arr.indexOf(current) === -1) {
             
@@ -114,11 +118,14 @@ const tempArr=[];
 
               nodeMade = new NodeMaker(
                 //setting values to object class
-                 current.key,
-                 xDepth,
-                 yDepth,
+                current.key,
+                xDepth,
+                yDepth,
                 parseFloat(current.actualDuration.toFixed(6)),
-                current.tag
+                current.tag,
+                current._debugSource.lineNumber,
+                current.return.key,
+                current.type.toUpperCase()
               );
             }
             
@@ -131,7 +138,12 @@ const tempArr=[];
                 xDepth,
                 yDepth,
                 parseFloat(current.actualDuration.toFixed(6)),
-                current.tag
+                current.tag,
+                //without a key, React fiber cannot access the lineNumber
+                //we assign lineNumber to the parent because they exist on the same line
+                current.return._debugSource.lineNumber,
+                current.return.key, 
+                "TEXT"
               );
             }
            
@@ -266,22 +278,11 @@ console.log(i)
          } , 10)
         
         
-        
-
   
-
         function loadModal(j){
           let modalArr = [];
 
-          //iterating over array of nodes
-          for (let props in nodeTracker[j]){
-           {
-            modalArr.push(
-              <li> {props} : {nodeTracker[j][props]}</li>
-            )
-            }
-
-          }
+          modalArr.push(<h2>Type: {nodeTracker[j].type}</h2>,<li>key: {nodeTracker[j].key}</li>, <li>duration: {nodeTracker[j].duration}</li>, <li>tag: {nodeTracker[j].tag}</li>, <li>lineNumber: {nodeTracker[j].lineNumber}</li>, <li>parent: {nodeTracker[j].parent}</li>);
          
           setTextBox(modalArr)
           
@@ -369,8 +370,6 @@ console.log(i)
               xDepth,
               yDepth,
               current._debugID,
-              
-
             );
             nodeTracker.push(nodeMade);
             nodeList.push(
