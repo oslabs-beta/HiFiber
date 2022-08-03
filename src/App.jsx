@@ -12,7 +12,7 @@ const App = () => {
   const [array2, setArray2] = useState([]);
   const [textBox, setTextBox] = useState(null);
   const [boxVisibility, setBoxVisibility] = useState("hidden");
-  const [demoColor, setDemoColor] = useState()
+
   const nullArrTracker = useRef(0);
   const newObj = <App />;
 
@@ -20,11 +20,11 @@ const App = () => {
 
 
 function demoButton(){
-setDemoColor('green');
 setDemo(2)
 }
 
 
+//Quits out of node text box
 useEffect(()=>
 window.addEventListener("keydown", (e)=>{
   console.log(e.key)
@@ -250,7 +250,7 @@ if (e.key==="Escape")
   }, [demo]);
 
   
-
+//turn on node box
   useEffect(()=>{
 if (demo>1){
     setBoxVisibility("visible");
