@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import { select, hierarchy, tree, linkVertical, linkHorizontal } from 'd3';
+import { select, hierarchy, tree, linkVertical, linkHorizontal } from 'd3-integration/D3';
 import useResizeObserver from './useResizeObserver';
 
 function TreeChart({ data }) {
