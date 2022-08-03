@@ -5,23 +5,22 @@ import './styles.css';
 const App = () => {
   const [demo, setDemo] = useState(1);
   const [divide, setDivide] = useState(null);
-  const [subtract, setSubtract] = useState(100);
   const [variable, setVariable] = useState(0);
   const [array, setArray] = useState([]);
   const [array2, setArray2] = useState([]);
   const [textBox, setTextBox] = useState(null);
   const [boxVisibility, setBoxVisibility] = useState("hidden");
-  const [demoColor, setDemoColor] = useState()
+
   const nullArrTracker = useRef(0);
   const newObj = <App />;
 
 
 function demoButton() {
-  setDemoColor('green');
-  setDemo(2)
+  setDemo(2);
 }
 
 
+//Quits out of node text box
 useEffect(()=>
   window.addEventListener("keydown", (e) => {
   console.log(e.key)
@@ -217,29 +216,27 @@ useEffect(()=>
 
         let variable = null;
       
-        setTimeout(()=> {        
+        setTimeout(() => {        
           for (let j = 0; j < nodeList.length; j++) {
             variable = document.getElementById(j);
             variable.addEventListener('click', () => {
               loadModal(j);
              })
-          }     
-       
+           }     
          }, 10)
         
-        function loadModal(j){
+        function loadModal(j) {
           let modalArr = [];
           modalArr.push(
-            <h2
-              style={{ marginTop: "-10px" }}>
+            <h2 style={{ marginTop: "-10px" }}>
               Type: {nodeTracker[j].type}
             </h2>,
-            <div>key:{nodeTracker[j].key}</div>, <div>duration: {nodeTracker[j].duration}</div>, <div>tag: {nodeTracker[j].tag}</div>, <div>lineNumber: {nodeTracker[j].lineNumber}</div>, <div>parent: {nodeTracker[j].parent}</div>);
+            <div>key: {nodeTracker[j].key} </div>, <div>duration: {nodeTracker[j].duration} </div>, <div>tag: {nodeTracker[j].tag} </div>, <div>lineNumber: {nodeTracker[j].lineNumber} </div>, <div>parent: {nodeTracker[j].parent} </div>);
           
-         if (nodeTracker[j].duration===0){
+         if (nodeTracker[j].duration===0) {
           modalArr.push(<div style={{color: "gold", marginTop: "20px", marginLeft: "87px", position: "absolute", opacity: ".8"}}>Idle</div>)
          }
-         if (nodeTracker[j].duration!=0){
+         if (nodeTracker[j].duration!=0) {
           modalArr.push(<div style={{color: "green", marginTop: "20px", marginLeft: "75px", position: "absolute"}}>Active</div>)
          }
           setTextBox(modalArr)
@@ -248,16 +245,14 @@ useEffect(()=>
         setArray(nodeList);
         setArray2(lineList);
       } 
-    
   }, [demo]);
 
   
-
-  useEffect(()=>{
-  if (demo>1){
+//turn on node box
+  useEffect(() => {
+  if (demo>1) {
     setBoxVisibility("visible");
-}
-
+    }
   }, [textBox])
 
   useEffect(() => {
