@@ -1,7 +1,7 @@
 ![](/assets/images/hifiber-logo.png)
 <h1 align="center">React Fiber Tree Visualizer & Performance Metric Tool</h3>
 <hr/>
-<h3 align="center">HiFiber is a React Fiber tree visualization tool that provides a dynamic representation of the Fiber tree as it loads and updates on your browser’s page. Working with pages built in React 16+, it maps out the application structure and will also measure performance metrics – including Fiber node start time, duration, rerender time/count, and various other useful Fiber properties.</h3>
+<h4 align="center">HiFiber is a React Fiber tree visualization tool that provides a dynamic representation of the Fiber tree as it loads and updates on your browser’s page. Working with pages built in React 16+, it maps out the application structure and will also measure performance metrics – including Fiber node start time, duration, rerender time/count, and various other useful Fiber properties.</h4>
 
 [add badges here]<br/>
 ![](/assets/images/fiberTreeAnimation.gif)<br/>
@@ -50,14 +50,14 @@ Next you will be able to interact with your tree. You can click on any node to r
 <b>Error Handling</b>: When something breaks in your code, The tree will highlight and blink on the breaking component. This will allow the user to locate the line that the breaking logic is happening on.
 
 ## Stretch Features
-<b>Containerization</b>
+<b>Containerization</b><br/>
 We get it: Everyone’s dev environment looks different. Whether you’re a Linux user on an older version of Chrome, a Mac OS user with Chrome’s latest release, or anything in between, we feel it’s important our users have easy access to HiFiber in their Chrome dev environment. That’s why we’re currently working to switch from our current monolithic application architecture to one that’s containerized – so all of its dependencies are packaged up in a standalone environment. Now, all of HiFiber’s tools will be readily available for you in a lightweight and standardized deployment.
 
 
-<b>Data Visualization with D3.js</b>
+<b>Data Visualization with D3.js</b><br/>
 While we’re proud of the elegant styling our DOM traversal algorithm yields to the frontend visualization, we also want our performance metrics to be represented equally as beautifully. That’s why we plan on utilizing D3.js, a popular JavaScript library suitable for manipulating/visualizing documents based on data. Using HTML, SVG and CSS, D3.js will allow our team to deliver clean and elegant visual representations of performance data each Fiber node yields upon render or rerender. Moreover, we’ll be able to visualize other Fiber node properties, making debugging your frontend fast, simple and fun!
 
-<b>NoSQL Database Utilization</b>
+<b>NoSQL Database Utilization</b><br/>
 Want to save performance metrics and compare them after subsequent builds of your app? We sure do! That’s why we’re planning on adding NoSQL database functionality, allowing users to effortlessly store performance metrics over time. Even further, we want our users to be able to compare performance reports across builds.
 
 ## Credits
