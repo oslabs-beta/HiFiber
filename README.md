@@ -1,2 +1,2 @@
  
-/assets/images/hifiber-logo
+/assets/images/hifiber-logo.png
