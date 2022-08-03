@@ -1,1 +1,2 @@
  
+/assets/images/hifiber-logo
