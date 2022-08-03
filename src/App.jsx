@@ -10,7 +10,7 @@ const App = () => {
   const [add, setAdd] = useState(1);
   const [times, setTimes] = useState(2);
   const [divide, setDivide] = useState(null);
-  const [subtract, setSubtract] = useState(100);
+  const [subtract, setSubtract] = useState(100);commit 
   const [variable, setVariable] = useState(0);
   //const newObj = window.document.body.children[0][0]
   const newObj = <App />;

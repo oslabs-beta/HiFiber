@@ -24,10 +24,7 @@
     ],
     "permissions": ["storage", "activeTab", "scripting", "tabs"], 
     "host_permissions": ["<all_urls>"],
-<<<<<<< HEAD
     
-=======
->>>>>>> dev
     "action": {
         "default_popup": "popup.html", 
         "default_icon": {
