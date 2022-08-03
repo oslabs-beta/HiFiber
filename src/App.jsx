@@ -131,6 +131,30 @@ if (e.key==="Escape")
             }
             nodeTracker.push(nodeMade);
             arr.push(current);
+
+            if (current.key==="Add"){
+              nodeList.push(
+                <button
+                  key={current.key}
+                  id={i}
+                  className="brokeNode"
+                  style={{
+                    animation: `blinker ${(xDepth + yDepth) / 3}s linear 1, glowing 1300ms infinite`,
+                    gridColumnStart: xDepth,
+                    gridColumnEnd: 'span 1',
+                    gridRowStart: yDepth,
+                    gridRowEnd: 'span 1',
+                    justifySelf: 'center ',
+                    zIndex: '0',
+                  }}
+                >
+                  {current.type != null ? current.type : ''}{' '}
+                  {current.key != null ? current.key : 'Text'}{' '}
+                </button>
+              );
+              current=head;
+              continue;
+            }
             nodeList.push(
               <button
                 key={current.key}
@@ -232,6 +256,12 @@ if (e.key==="Escape")
         
         function loadModal(j){
           let modalArr = [];
+          if (nodeTracker[j].key==="Add"){
+            modalArr.push(<h2 style={{marginTop: "-10px", color: "red"}}>Type: {nodeTracker[j].type}</h2>,<li style={{color: "red"}}>key: {nodeTracker[j].key}</li>, <li style={{color: "red"}}>duration: {nodeTracker[j].duration}</li>, <li style={{color: "red"}}>tag: {nodeTracker[j].tag}</li>,<div style={{color: "red", marginTop: "20px", marginLeft: "37px", position: "absolute", opacity: ".8"}}>Error on line {nodeTracker[j].lineNumber} </div>)
+
+
+          }
+          else{
           modalArr.push(<h2 style={{marginTop: "-10px"}}>Type: {nodeTracker[j].type}</h2>,<li>key: {nodeTracker[j].key}</li>, <li>duration: {nodeTracker[j].duration}</li>, <li>tag: {nodeTracker[j].tag}</li>, <li>lineNumber: {nodeTracker[j].lineNumber}</li>, <li>parent: {nodeTracker[j].parent}</li>);
          if (nodeTracker[j].duration===0){
           modalArr.push(<div style={{color: "gold", marginTop: "20px", marginLeft: "87px", position: "absolute", opacity: ".8"}}>Idle</div>)
@@ -239,6 +269,7 @@ if (e.key==="Escape")
          if (nodeTracker[j].duration!=0){
           modalArr.push(<div style={{color: "green", marginTop: "20px", marginLeft: "75px", position: "absolute"}}>Active</div>)
          }
+        }
           setTextBox(modalArr)
         }
 
