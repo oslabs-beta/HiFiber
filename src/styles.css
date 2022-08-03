@@ -17,7 +17,6 @@ body {
   z-index: 0;
   opacity: 1;
   transform:  scale(1);
-
 }
 
 .nodes:active{
@@ -30,10 +29,7 @@ body {
 .nodes:hover {
   transition: all .1s ease-in-out;
   transform: scale(1.2);
-
 }
-
-
 
 .container {
   display: grid;
@@ -95,7 +91,6 @@ body {
     0 0 1px 1px rgb(250,
       117,
       246);
-
 }
 
 .lineVertical {
@@ -108,9 +103,7 @@ body {
   box-shadow:
     0 0 1px .5px rgb(101, 101, 248),
     0 0 1px 1px rgb(101, 101, 248);
-
 }
-
 
 .textBox {
   border: 2px solid rgb(11, 8, 0);
@@ -128,11 +121,9 @@ body {
   z-index: 0;
   opacity: 1;
   grid-column-end: 8;
-
-
 }
 
-.demo{
+.demo {
   border: 2px solid rgb(11, 8, 0);
   
   height: 60px;
@@ -140,15 +131,14 @@ body {
   border-radius: 100%;
   color: rgb(255, 250, 250);
   background-color: #282727;
-  
   font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
   font-size: 15px;
   box-shadow: 0 2px #999;
-
 }
 
-
-.demo:hover {background-color: #3e8e41}
+.demo:hover { 
+  background-color: #3e8e41
+}
 
 .demo:active {
   background-color: #3e8e41;
@@ -156,28 +146,26 @@ body {
   transform: translateY(4px);
 }
 
-.xButton{
+.xButton {
   border: 1px solid rgb(11, 8, 0);
   opacity: .4;
   height: 22px;
   width: 22px;
   position: absolute;
   border-radius: 5%;
-  margin-top: -40px;
+  margin-top: -50px;
   margin-left: 65px;
-  background-color: #524f4f;
+  background-color: rgba(147, 145, 145, 0.805);
   font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
   font-size: 14px;
 }
 
-.xButton:active{
+.xButton:active {
   background-color: red;
   box-shadow: 0 1px #666;
   transform: translateY(1px);
-
-
 }
 
-.xButton:hover{
+.xButton:hover {
   background-color: red;
 }
