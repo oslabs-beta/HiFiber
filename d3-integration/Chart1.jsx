@@ -1,4 +1,4 @@
-import * as d3 from 'd3';
+import * as d3 from 'd3-integration/D3';
 
 
 function Tree(
