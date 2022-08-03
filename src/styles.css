@@ -16,14 +16,18 @@ body {
   font-size: 10%;
   z-index: 0;
   opacity: 1;
-  transform:  scale(1);
+  transform: scale(1);
 }
 
-.nodes:active{
+.nodes:active {
   background-color:  rgb(101, 101, 248);
   box-shadow: 0 2px #666;
   transform: translateY(4px);
-  opacity: .9
+  opacity: 2;
+  box-shadow:
+    0 0 2px 2px #fff,  
+    0 0 5px 5px #f0f, 
+    0 0 7px 7px #0ff;
 }
 
 .nodes:hover {
@@ -155,7 +159,7 @@ body {
   border-radius: 5%;
   margin-top: -50px;
   margin-left: 65px;
-  background-color: rgba(147, 145, 145, 0.805);
+  background-color: rgba(147, 145, 145, 0.823);
   font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
   font-size: 14px;
 }
