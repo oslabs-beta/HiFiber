@@ -1,49 +1,50 @@
 import React, { useState, useEffect, useRef, Component } from 'react';
 import './styles.css';
 
-// import { rootNode } from '../script';
-// console.log('This is the root node from the bundled App.jsx');
-// console.log(rootNode);
 
 
 const App = () => {
-  const [add, setAdd] = useState(1);
-  const [times, setTimes] = useState(2);
+  const [demo, setDemo] = useState(1);
   const [divide, setDivide] = useState(null);
   const [subtract, setSubtract] = useState(100);
   const [variable, setVariable] = useState(0);
-  //const newObj = window.document.body.children[0][0]
-  const newObj = <App />;
   const [array, setArray] = useState([]);
   const [array2, setArray2] = useState([]);
-  const [version, setVersion] = useState('Simple');
-  const nullArrTracker = useRef(0);
   const [textBox, setTextBox] = useState(null);
   const [boxVisibility, setBoxVisibility] = useState("hidden");
-
-//array of numbers we are using to assign null keys (unique IDs)
-  const nullArr = [];
-  for (let i = 0; i < 99; i++) {
-    nullArr.push(i);
-  }
+  const [demoColor, setDemoColor] = useState()
+  const nullArrTracker = useRef(0);
+  const newObj = <App />;
 
 
+
+
+function demoButton(){
+setDemoColor('green');
+setDemo(2)
+}
+
+
+useEffect(()=>
+window.addEventListener("keydown", (e)=>{
+  console.log(e.key)
+if (e.key==="Escape")
+  setBoxVisibility("hidden")
+}
+))
+
+
+//Traverses the fibernode starting at the root node.
+//As it traverses it creates three arrays to be displayed by clicking "DEMO". 
+//One array displays the node buttons. One displays the lines connecting them. And the last displays an information card for the node.
+//the information card contains information about the node and is displayed by clicking on the nodes
   useEffect(() => {
-    
-    //Qualifier to only run if the correct version is clicked
-    if (version === 'Simple') {
-      //NOT IMPORTANT for DEV TOOL
+      //NOT IMPORTANT for DEV TOOL, only neccesarry for demo application
       if (variable == 2) {
-        //set current to the root fiber node
         let current = newObj._owner;
-        //Sets the orignial fiber node, so we can know we hit the end of the while loop
-        const head = current;
-        console.log(newObj)
-        
-        //creating an object class called NodeMaker
-        //these properties are prototypes for the class Nodemaker 
+        const head = current;        
         class NodeMaker {
-          constructor(key, x, y, duration, tag, lineNumber, parent, type) {
+          constructor(key, x, y, duration, tag, lineNumber, parent, type, alternate) {
             this.key = key;
             this.x = x;
             this.y = y;
@@ -52,16 +53,12 @@ const App = () => {
             this.lineNumber = lineNumber;
             this.parent = parent;
             this.type = type;
+            this.alternate=alternate;
           }
         }
-
         let nodeMade = null;
-        //nodeTracker array is keeping track of class nodes we are building
         let nodeTracker = [];
         let arr = [head];
-       
-        //create an array Lines
-        //insert the first line into the array.
         let lineList = [
           <div
             style={{
@@ -72,9 +69,7 @@ const App = () => {
             className="lineVertical"
           ></div>,
         ];
-        //create a list of nodes
-        //insert the first node
-        //nodeList is an array of buttons rendered to the screen
+
         let nodeList = [
           <button
             key={current.key}
@@ -85,7 +80,6 @@ const App = () => {
               gridRowStart: 2,
               gridRowEnd: 'span 1',
               justifySelf: 'center',
-              // marginTop: '30px',
               animation: `blinker ${(2 + 1) / 3}s linear 1`,
             }}
           >
@@ -93,26 +87,21 @@ const App = () => {
             {current.type}
           </button>,
         ];
-        //set current node to the precious current's child.
+
         current = current.child;
 
-        //set variables to keep track of our position in the array relative to the grid
+
         let yDepth = 3;
         let xDepth = 1;
         let previousX = 0;
         let initX = 1;
         let i = 0;
         
-        //as long as we're not at the top keep going
         while (current !== head) {
-          //if the current node does not exist in the grid
           if (arr.indexOf(current) === -1) {
-            
             if (current.key){
               nullArrTracker.current = nullArrTracker.current + 1;
-
               nodeMade = new NodeMaker(
-                //setting values to object class
                 current.key,
                 xDepth,
                 yDepth,
@@ -120,12 +109,11 @@ const App = () => {
                 current.tag,
                 current._debugSource.lineNumber,
                 current.return.key,
-                current.type.toUpperCase()
+                current.type.toUpperCase(),
+                current.alternate
               );
             }
-            
             if (!current.key) {
-              //setting a key with a different value
               nullArrTracker.current = nullArrTracker.current + 1;
         
               nodeMade = new NodeMaker(
@@ -134,29 +122,21 @@ const App = () => {
                 yDepth,
                 parseFloat(current.actualDuration.toFixed(6)),
                 current.tag,
-                //without a key, React fiber cannot access the lineNumber
-                //we assign lineNumber to the parent because they exist on the same line
                 current.return._debugSource.lineNumber,
                 current.return.key, 
-                "TEXT"
+                "TEXT",
+                current.alternate
+
               );
             }
-           
             nodeTracker.push(nodeMade);
             arr.push(current);
-
-
-
-            //push a button into the node list. Set the buttons x and y coordinates to the x and y depth
-            //Make the animation last as long as how deep in the tree this current node exist.
-            //console.log(i);
             nodeList.push(
               <button
                 key={current.key}
                 id={i}
                 className="nodes"
                 style={{
-                  // opacity: 1,
                   animation: `blinker ${(xDepth + yDepth) / 3}s linear 1`,
                   gridColumnStart: xDepth,
                   gridColumnEnd: 'span 1',
@@ -171,9 +151,7 @@ const App = () => {
               </button>
             );
             i++;
-            //if the current node has a child
             if (current.child) {
-              //set initial x to current xdepth
               initX = xDepth;
               current = current.child;
 
@@ -205,14 +183,13 @@ const App = () => {
               );
 
               xDepth++;
-              // nodeList.push(<div className="lineHorizontal"></div>);
               continue;
             }
             if (!current.sibling && !current.child) {
               previousX = xDepth;
               current = current.return;
               initX = nodeTracker.filter(
-                (el) => el.key === current.key
+                (el) => el.alternate === current.alternate
               )[0].x;
               yDepth--;
               continue;
@@ -220,11 +197,6 @@ const App = () => {
           }
           if (arr.indexOf(current) !== -1) {
             if (current.sibling) {
-              console.log(current.key, initX)
-              // if (current.key == 'TopOf') {
-              //   initX = 1;
-              //   console.log(initX, xDepth);
-              // }
               lineList.push(
                 <div
                   style={{
@@ -236,11 +208,8 @@ const App = () => {
                   className="lineHorizontal"
                 ></div>
               );
-
               current = current.sibling;
-
               xDepth++;
-              // nodeList.push(<div className="lineHorizontal"></div>);
               continue;
             }
 
@@ -250,17 +219,10 @@ const App = () => {
         }
 
         let variable=null;
-
-        // console.log(nodeList)
-        // console.log(lineList)
       
         setTimeout(()=>{        
-       
           for (let j = 0; j < nodeList.length; j++){
-
             variable = document.getElementById(j);
-            console.log(nodeTracker[j - 2]);
-
             variable.addEventListener('click', () => {
               loadModal(j);
              })
@@ -268,252 +230,73 @@ const App = () => {
        
          }, 10)
         
-        
         function loadModal(j){
           let modalArr = [];
-
-          modalArr.push(<h2>Type: {nodeTracker[j].type}</h2>,<li>key: {nodeTracker[j].key}</li>, <li>duration: {nodeTracker[j].duration}</li>, <li>tag: {nodeTracker[j].tag}</li>, <li>lineNumber: {nodeTracker[j].lineNumber}</li>, <li>parent: {nodeTracker[j].parent}</li>);
-         
+          modalArr.push(<h2 style={{marginTop: "-10px"}}>Type: {nodeTracker[j].type}</h2>,<li>key: {nodeTracker[j].key}</li>, <li>duration: {nodeTracker[j].duration}</li>, <li>tag: {nodeTracker[j].tag}</li>, <li>lineNumber: {nodeTracker[j].lineNumber}</li>, <li>parent: {nodeTracker[j].parent}</li>);
+         if (nodeTracker[j].duration===0){
+          modalArr.push(<div style={{color: "gold", marginTop: "20px", marginLeft: "87px", position: "absolute", opacity: ".8"}}>Idle</div>)
+         }
+         if (nodeTracker[j].duration!=0){
+          modalArr.push(<div style={{color: "green", marginTop: "20px", marginLeft: "75px", position: "absolute"}}>Active</div>)
+         }
           setTextBox(modalArr)
         }
 
         setArray(nodeList);
         setArray2(lineList);
+
       } 
-    }
-  }, [add]);
+    
+  }, [demo]);
 
-  useEffect(() => {
-    if (version === 'Full')
-      if (variable > 1) {
-        let current =  newObj._owner;
-        const head = current;
-        let arr = [head];
-        let lineList = [
-          <div
-            style={{
-              gridColumn: `${1} / span 1`,
-              gridRow: `${2} / span 2`,
-              animation: `example2 1s linear 1`,
-            }}
-            className="lineVertical"
-          ></div>,
-        ];
-        let nodeList = [
-          <button
-            key={current.key}
-            className="nodes"
-            style={{
-              gridColumnStart: 1,
-              gridColumnEnd: 'span 1',
-              gridRowStart: 2,
-              gridRowEnd: 'span 1',
-              justifySelf: 'center',
-              // marginTop: '30px',
-              animation: `blinker ${(2 + 1) / 3}s linear 1`,
-            }}
-          >
-            <b style={{ fontSize: '10px' }}>APP</b>
-            {current.type}
-          </button>,
-        ];
-
-        class NodeMaker {
-          constructor(key, x, y, debug) {
-            this.key = key;
-            this.x = x;
-            this.y = y;
-            this.debug = debug;
-          }
-        }
-
-        let nodeMade = null;
-
-        let nodeTracker = [];
-        current = current.child;
-
-        let yDepth = 3;
-        let xDepth = 1;
-        let previousX = 0;
-        let initX = 1;
-        //only compare
-        //as long as we're not at the top keep going
-        while (current !== head) {
-          if (current.tag == 6 || current.tag == 7) {
-            yDepth--;
-            previousX = xDepth;
-
-            current = current.return;
-            continue;
-          }
-
-          // if (current.memoizedProps !== current.alternate.memoizedProps) {
-          // }
-          //optional conditional
-
-          if (arr.indexOf(current) === -1) {
-            arr.push(current);
-            nodeMade = new NodeMaker(
-              current.key,
-              xDepth,
-              yDepth,
-              current._debugID,
-            );
-            nodeTracker.push(nodeMade);
-            nodeList.push(
-              <button
-                key={current.key}
-                className="nodes"
-                style={{
-                  // opacity: 1,
-                  animation: `blinker ${(xDepth + yDepth) / 3}s linear 1`,
-                  gridColumnStart: xDepth,
-                  gridColumnEnd: 'span 1',
-                  gridRowStart: yDepth,
-                  gridRowEnd: 'span 1',
-                  justifySelf: 'center ',
-                  zIndex: '0',
-                }}
-              >
-                {current.type != null ? current.type : ''}
-                <b style={{ fontSize: '10px' }}>
-                  {' '}
-                  {current.key != null ? current.key : 'Text'}{' '}
-                </b>{' '}
-              </button>
-            );
-
-            if (current.child) {
-              //REALLY important for some reason
-              initX = xDepth;
-              if (current.child.tag != 6 && current.child.tag != 7) {
-                lineList.push(
-                  <div
-                    style={{
-                      gridColumn: `${xDepth} / span 1`,
-                      gridRow: `${yDepth} / span 2`,
-                      animation: `example2 ${(xDepth + yDepth) / 3}s linear 1`,
-                    }}
-                    className="lineVertical"
-                  ></div>
-                );
-              }
-              current = current.child;
-
-              yDepth++;
-
-              continue;
-            }
-            if (current.sibling) {
-              current = current.sibling;
-
-              lineList.push(
-                <div
-                  style={{
-                    gridColumn: `${xDepth} / ${xDepth + 2}`,
-                    gridRow: `${yDepth} / span 1`,
-                    animation: `example ${(Depth + yDepth) / 3}s linear 1`,
-                  }}
-                  className="lineHorizontal"
-                ></div>
-              );
-              xDepth++;
-              // nodeList.push(<div className="lineHorizontal"></div>);
-              continue;
-            }
-            if (!current.sibling && !current.child) {
-              previousX = xDepth;
-              current = current.return;
-              initX = nodeTracker.filter(
-                (el) => el.debug === current._debugID
-              )[0].x;
-              yDepth--;
-              continue;
-            }
-          }
-          if (arr.indexOf(current) !== -1) {
-            if (current.sibling) {
-              lineList.push(
-                <div
-                  style={{
-                    gridColumnStart: `${initX}`,
-                    gridColumnEnd: `${previousX + 2}`,
-                    gridRow: `${yDepth} / span ${1}`,
-                    animation: `example ${(xDepth + yDepth) / 3}s linear 1`,
-                  }}
-                  className="lineHorizontal"
-                ></div>
-              );
-              current = current.sibling;
-              xDepth++;
-              // nodeList.push(<div className="lineHorizontal"></div>);
-              continue;
-            }
-            current = current.return;
-            continue;
-          }
-        }
-        setArray(nodeList);
-        setArray2(lineList);
-      }
-  }, [add]);
+  
 
   useEffect(()=>{
-if (add>1){
+if (demo>1){
     setBoxVisibility("visible");
-    console.log("boxVisibility")
 }
 
   },[textBox])
 
   useEffect(() => {
     setVariable((x) => x + 1);
-  }, [add]);
+  }, [demo]);
 
+
+  //The Div with the key "contain" is the true functionality of the tool. Everything else is used to construct data for the tree;
+  //if you want to expand the node tree, add more html components to be rendered to see their relation
   return (
     <div key="Original" className="body">
       <div key="TopOf">
         <div key="Second" className="App">
-          <button
-            onClick={() => {
-              version === 'Full' ? setVersion('Simple') : setVersion('Full');
-            }}
-            key="Nodes"
-          >
-            {version}
-          </button>
         </div>
-
         <div key="Tempo">
-          <button key="Divide">
+          <button  style={{visibility: "hidden"}} key="Divide">
             {' '}
-            {divide} {add}
+            {divide} {demo}
           </button>
-          <button key="Subtract">Subtract</button>
+          <button key="Subtract" style={{visibility: "hidden"}}>Subtract</button>
         </div>
         <button
           onClick={() => {
-            setAdd((x) => x + 1);
+            demoButton();
           }}
           key="Add"
+          className='demo'
+          style={{borderColor: ''}}
         >
-          ADD {add}
-          {subtract}
+          Demo 
         </button>
-
         <div key="Contain" className="container">
           {array}
           {array2}
-          <button onClick={()=>setBoxVisibility("hidden")} className= 'textBox' style={{visibility: boxVisibility}}>{textBox}
-          {/* <button onClick={()=>setBoxVisibility("hidden")}>Close</button> */}
+          <button className= 'textBox' style={{visibility: boxVisibility}}>
+          <button onClick={()=>setBoxVisibility("hidden")} className="xButton">x</button>
+          {textBox}
           </button>
         </div>
-
-        <button key="Last"></button>
-
-      </div>
-      
-      <div key="cat"></div>
+      </div>      
+      <button key="Last" style={{visibility: 'hidden'}}></button>
 
     </div>
   );
