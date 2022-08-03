@@ -29,3 +29,25 @@ You can manually type this path into Explorer’s navbar, or you can access it t
 Chrome extensions are stored in the <b>filesystem</b>, in the <b>extensions folder</b>, which is found in Chrome’s <b>user data directory</b>.
 
 After you’ve placed the extension in the appropriate directory, now it’s time to install it to your browser. Open Chrome and click the puzzle piece icon on the upper right corner of your browser. This is the tab for your Extensions. At the bottom of the tab, click <b>Manage Extensions</b> then click <b>Load Unpacked</b>. Navigate to the directory that you’ve installed HiFiber in and click <b>Select Folder</b>. You’ve now installed HiFiber in your browser! The Extension will read the `manifest.json` to interface the extension with your browser.
+
+## How to Use
+<hr/>
+Once you’ve installed and enabled HiFiber, the front end world is your oyster! Simply navigate to a page built in React 16+ and click the <b>Manage Extensions</b> button again. Click the icon for HiFiber and voila – a devtool panel will automatically appear with the frontend visualization of the app’s Fiber tree.
+
+Once you are in the app, an animation will show your tree being created. You will have the option to view a <b>Simple</b> or <b>Full tree</b>.
+
+<b>Simple</b>: Shows the nodes that represent HTML, Class, or Functional components. High level nodes most likely what a debugger is working with. Also simpler for basic onboarding.
+
+<b>Full</b>: Shows the entirety of every node on the fiber tree. This is better for educational purposes, and occasional deep dive debugging. Many of the nodes are excessive and not useful to the average coder.
+
+Next you will be able to interact with your tree. You can click on any node to reveal additional information for it.
+
+- Type of node
+- Render time
+- State and previous state values
+- Active or Idle
+- React Tag
+- Line number
+- Key
+
+<b>Error Handling</b>: When something breaks in your code, The tree will highlight and blink on the breaking component. This will allow the user to locate the line that the breaking logic is happening on.
