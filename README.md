@@ -3,9 +3,13 @@
 <hr/>
 <h4 align="center">HiFiber is a React Fiber tree visualization tool that provides a dynamic representation of the Fiber tree as it loads and updates on your browser’s page. Working with pages built in React 16+, it maps out the application structure and will also measure performance metrics – including Fiber node start time, duration, rerender time/count, and various other useful Fiber properties.</h4>
 
-[add badges here]<br/>
-![](/assets/images/fiberTreeAnimation.gif)<br/>
-[add hyperlinks to readme sections here, centered]<br/>
+<div align="center">
+<img align="middle" alt="GitHub repo size" src="https://img.shields.io/github/repo-size/oslabs-beta/HiFiber">
+</div>
+<br/>
+
+
+![](/assets/images/fiberTreeAnimation.gif)
 
 ## About
 <b>HiFiber</b> is a versatile Chrome devtool that allows for easy frontend debugging and visualization. In our team's work, our aim is twofold; HiFiber is designed not only for the onboarding frontend engineer surveying the lay of the land of their company’s codebase – but is also developed with the more experienced frontend engineer in mind. HiFiber will offer robust frontend Fiber tree debugging, including allowing developers to quickly identify Fiber nodes that unnecessarily rerender, or hog valuable render time. It will also offer various visualization options, by default providing a clean and simple visual representation of the DOM after React has worked its magic through its reconciliation algorithm.
