@@ -1,2 +1,5 @@
 ![](/assets/images/hifiber-logo.png)
-## React Fiber Tree Visualizer & Performance Metric Tool
+<p align="center">
+  <h3>React Fiber Tree Visualizer & Performance Metric Tool</h3>
+</p>
+oiajdsfoijdsafd
