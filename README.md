@@ -1,2 +1,1 @@
- 
-/assets/images/hifiber-logo.png
+![](/assets/images/hifiber-logo.png)
