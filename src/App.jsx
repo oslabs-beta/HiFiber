@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef, Component } from 'react';
 import './styles.css';
 
 
-
 const App = () => {
   const [demo, setDemo] = useState(1);
   const [divide, setDivide] = useState(null);
@@ -17,20 +16,18 @@ const App = () => {
   const newObj = <App />;
 
 
-
-
-function demoButton(){
-setDemoColor('green');
-setDemo(2)
+function demoButton() {
+  setDemoColor('green');
+  setDemo(2)
 }
 
 
 useEffect(()=>
-window.addEventListener("keydown", (e)=>{
+  window.addEventListener("keydown", (e) => {
   console.log(e.key)
-if (e.key==="Escape")
+  if (e.key==="Escape")
   setBoxVisibility("hidden")
-}
+  }
 ))
 
 
@@ -218,10 +215,10 @@ if (e.key==="Escape")
           }
         }
 
-        let variable=null;
+        let variable = null;
       
-        setTimeout(()=>{        
-          for (let j = 0; j < nodeList.length; j++){
+        setTimeout(()=> {        
+          for (let j = 0; j < nodeList.length; j++) {
             variable = document.getElementById(j);
             variable.addEventListener('click', () => {
               loadModal(j);
@@ -232,7 +229,13 @@ if (e.key==="Escape")
         
         function loadModal(j){
           let modalArr = [];
-          modalArr.push(<h2 style={{marginTop: "-10px"}}>Type: {nodeTracker[j].type}</h2>,<li>key: {nodeTracker[j].key}</li>, <li>duration: {nodeTracker[j].duration}</li>, <li>tag: {nodeTracker[j].tag}</li>, <li>lineNumber: {nodeTracker[j].lineNumber}</li>, <li>parent: {nodeTracker[j].parent}</li>);
+          modalArr.push(
+            <h2
+              style={{ marginTop: "-10px" }}>
+              Type: {nodeTracker[j].type}
+            </h2>,
+            <div>key:{nodeTracker[j].key}</div>, <div>duration: {nodeTracker[j].duration}</div>, <div>tag: {nodeTracker[j].tag}</div>, <div>lineNumber: {nodeTracker[j].lineNumber}</div>, <div>parent: {nodeTracker[j].parent}</div>);
+          
          if (nodeTracker[j].duration===0){
           modalArr.push(<div style={{color: "gold", marginTop: "20px", marginLeft: "87px", position: "absolute", opacity: ".8"}}>Idle</div>)
          }
@@ -244,7 +247,6 @@ if (e.key==="Escape")
 
         setArray(nodeList);
         setArray2(lineList);
-
       } 
     
   }, [demo]);
@@ -252,11 +254,11 @@ if (e.key==="Escape")
   
 
   useEffect(()=>{
-if (demo>1){
+  if (demo>1){
     setBoxVisibility("visible");
 }
 
-  },[textBox])
+  }, [textBox])
 
   useEffect(() => {
     setVariable((x) => x + 1);
@@ -297,7 +299,6 @@ if (demo>1){
         </div>
       </div>      
       <button key="Last" style={{visibility: 'hidden'}}></button>
-
     </div>
   );
 };
