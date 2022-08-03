@@ -22,7 +22,6 @@ function demoButton() {
 //Quits out of node text box
   useEffect(() =>
     window.addEventListener("keydown", (e) => {
-      //console.log(e.key)
       if (e.key === "Escape") {
         setBoxVisibility("hidden");
         if (tempClick.current || tempClick.current === 0) {
