@@ -10,24 +10,26 @@ const App = () => {
   const [array2, setArray2] = useState([]);
   const [textBox, setTextBox] = useState(null);
   const [boxVisibility, setBoxVisibility] = useState("hidden");
-
+  const tempClick= useRef();
   const nullArrTracker = useRef(0);
   const newObj = <App />;
 
-
+  
 function demoButton() {
   setDemo(2);
 }
 
-
 //Quits out of node text box
-useEffect(()=>
-  window.addEventListener("keydown", (e) => {
-  console.log(e.key)
-  if (e.key==="Escape")
-  setBoxVisibility("hidden")
-  }
-))
+  useEffect(() =>
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        setBoxVisibility("hidden");
+        if (tempClick.current || tempClick.current === 0) {
+          const prevNode = document.getElementById(tempClick.current);
+          prevNode.style.borderColor = "black";
+        }
+      }
+    }), []);
 
 
 //Traverses the fibernode starting at the root node.
@@ -86,7 +88,6 @@ useEffect(()=>
 
         current = current.child;
 
-
         let yDepth = 3;
         let xDepth = 1;
         let previousX = 0;
@@ -122,7 +123,6 @@ useEffect(()=>
                 current.return.key, 
                 "TEXT",
                 current.alternate
-
               );
             }
             nodeTracker.push(nodeMade);
@@ -225,7 +225,19 @@ useEffect(()=>
            }     
          }, 10)
         
+        //this function is pushing html elements into modalArr 
+        //and then it is setting this array as the textbox
         function loadModal(j) {
+          //check if there is a previous node that was clicked
+          if (tempClick.current || tempClick.current === 0){
+            const prevNode = document.getElementById(tempClick.current);
+            prevNode.style.borderColor = "black";
+          }
+
+          const currentNode = document.getElementById(j);
+          currentNode.style.borderColor = "white";
+          tempClick.current=j;
+
           let modalArr = [];
           modalArr.push(
             <h2 style={{ marginTop: "-10px" }}>
@@ -247,6 +259,13 @@ useEffect(()=>
       } 
   }, [demo]);
 
+  function redX() {
+    setBoxVisibility("hidden");
+    if (tempClick.current || tempClick.current === 0){
+      const prevNode = document.getElementById(tempClick.current);
+      prevNode.style.borderColor = "black";
+    }
+  }
   
 //turn on node box
   useEffect(() => {
@@ -288,7 +307,7 @@ useEffect(()=>
           {array}
           {array2}
           <button className= 'textBox' style={{visibility: boxVisibility}}>
-          <button onClick={()=>setBoxVisibility("hidden")} className="xButton">x</button>
+          <button onClick={()=>redX()} className="xButton">x</button>
           {textBox}
           </button>
         </div>
