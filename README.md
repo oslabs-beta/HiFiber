@@ -14,7 +14,7 @@
 </div>
 <br/><br/>
 
-![](/assets/images/treeAnimation.gif)<br/>
+![](/assets/images/demoLoop.gif)<br/>
 
 <p align="center">
   <a href=#installation>Installation</a>
