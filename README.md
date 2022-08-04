@@ -14,7 +14,23 @@
 </div>
 <br/>
 
-![](/assets/images/fiberTreeAnimation.gif)
+![](/assets/images/fiberTreeAnimation.gif)<br/>
+
+<p align="center">
+  <a href=#installation>Installation</a>
+  •
+  <a href=#how-to-use>How to Use</a>
+  •
+  <a href=#stretch-features>Stretch Features</a>
+  •
+  <a href=#meet-the-team>Meet the Team</a>
+  •
+  <a href=#license>License</a>
+  • 
+  <a href=#how-to-contribute>How to Contribute</a>
+</p>
+
+
 
 ## About
 <b>HiFiber</b> is a versatile Chrome devtool that allows for easy frontend debugging and visualization. In our team's work, our aim is twofold; HiFiber is designed not only for the onboarding frontend engineer surveying the lay of the land of their company’s codebase – but is also developed with the more experienced frontend engineer in mind. HiFiber will offer robust frontend Fiber tree debugging, including allowing developers to quickly identify Fiber nodes that unnecessarily rerender, or hog valuable render time. It will also offer various visualization options, by default providing a clean and simple visual representation of the DOM after React has worked its magic through its reconciliation algorithm.
@@ -69,7 +85,7 @@ While we’re proud of the elegant styling our DOM traversal algorithm yields to
 <b>NoSQL Database Utilization</b><br/>
 Want to save performance metrics and compare them after subsequent builds of your app? We sure do! That’s why we’re planning on adding NoSQL database functionality, allowing users to effortlessly store performance metrics over time. Even further, we want our users to be able to compare performance reports across builds.
 
-## Credits
+## Meet the Team
 - Lauren Acrich: [LinkedIn](https://www.linkedin.com/in/laurenacrich/) | [GitHub](https://github.com/lauren-acrich)
 - Matthew Birnholtz: [LinkedIn](https://www.linkedin.com/in/matthew-birnholtz-1b607a85/) | [GitHub](https://github.com/mattbirn93)
 - Michael Filoramo: [LinkedIn](https://www.linkedin.com/in/michael-filoramo/) | [GitHub](https://github.com/mfiloramo)
