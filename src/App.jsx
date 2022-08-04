@@ -2,36 +2,34 @@ import React, { useState, useEffect, useRef, Component } from 'react';
 import './styles.css';
 
 
-
 const App = () => {
   const [demo, setDemo] = useState(1);
   const [divide, setDivide] = useState(null);
-  const [subtract, setSubtract] = useState(100);
   const [variable, setVariable] = useState(0);
   const [array, setArray] = useState([]);
   const [array2, setArray2] = useState([]);
   const [textBox, setTextBox] = useState(null);
   const [boxVisibility, setBoxVisibility] = useState("hidden");
-
+  const tempClick= useRef();
   const nullArrTracker = useRef(0);
   const newObj = <App />;
 
-
-
-
-function demoButton(){
-setDemo(2)
+  
+function demoButton() {
+  setDemo(2);
 }
-
 
 //Quits out of node text box
-useEffect(()=>
-window.addEventListener("keydown", (e)=>{
-  console.log(e.key)
-if (e.key==="Escape")
-  setBoxVisibility("hidden")
-}
-))
+  useEffect(() =>
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        setBoxVisibility("hidden");
+        if (tempClick.current || tempClick.current === 0) {
+          const prevNode = document.getElementById(tempClick.current);
+          prevNode.style.borderColor = "black";
+        }
+      }
+    }), []);
 
 
 //Traverses the fibernode starting at the root node.
@@ -90,7 +88,6 @@ if (e.key==="Escape")
 
         current = current.child;
 
-
         let yDepth = 3;
         let xDepth = 1;
         let previousX = 0;
@@ -126,7 +123,6 @@ if (e.key==="Escape")
                 current.return.key, 
                 "TEXT",
                 current.alternate
-
               );
             }
             nodeTracker.push(nodeMade);
@@ -218,25 +214,41 @@ if (e.key==="Escape")
           }
         }
 
-        let variable=null;
+        let variable = null;
       
-        setTimeout(()=>{        
-          for (let j = 0; j < nodeList.length; j++){
+        setTimeout(() => {        
+          for (let j = 0; j < nodeList.length; j++) {
             variable = document.getElementById(j);
             variable.addEventListener('click', () => {
               loadModal(j);
              })
-          }     
-       
+           }     
          }, 10)
         
-        function loadModal(j){
+        //this function is pushing html elements into modalArr 
+        //and then it is setting this array as the textbox
+        function loadModal(j) {
+          //check if there is a previous node that was clicked
+          if (tempClick.current || tempClick.current === 0){
+            const prevNode = document.getElementById(tempClick.current);
+            prevNode.style.borderColor = "black";
+          }
+
+          const currentNode = document.getElementById(j);
+          currentNode.style.borderColor = "white";
+          tempClick.current=j;
+
           let modalArr = [];
-          modalArr.push(<h2 style={{marginTop: "-10px"}}>Type: {nodeTracker[j].type}</h2>,<li>key: {nodeTracker[j].key}</li>, <li>duration: {nodeTracker[j].duration}</li>, <li>tag: {nodeTracker[j].tag}</li>, <li>lineNumber: {nodeTracker[j].lineNumber}</li>, <li>parent: {nodeTracker[j].parent}</li>);
-         if (nodeTracker[j].duration===0){
+          modalArr.push(
+            <h2 style={{ marginTop: "-10px" }}>
+              Type: {nodeTracker[j].type}
+            </h2>,
+            <div>key: {nodeTracker[j].key} </div>, <div>duration: {nodeTracker[j].duration} </div>, <div>tag: {nodeTracker[j].tag} </div>, <div>lineNumber: {nodeTracker[j].lineNumber} </div>, <div>parent: {nodeTracker[j].parent} </div>);
+          
+         if (nodeTracker[j].duration===0) {
           modalArr.push(<div style={{color: "gold", marginTop: "20px", marginLeft: "87px", position: "absolute", opacity: ".8"}}>Idle</div>)
          }
-         if (nodeTracker[j].duration!=0){
+         if (nodeTracker[j].duration!=0) {
           modalArr.push(<div style={{color: "green", marginTop: "20px", marginLeft: "75px", position: "absolute"}}>Active</div>)
          }
           setTextBox(modalArr)
@@ -244,19 +256,23 @@ if (e.key==="Escape")
 
         setArray(nodeList);
         setArray2(lineList);
-
       } 
-    
   }, [demo]);
 
+  function redX() {
+    setBoxVisibility("hidden");
+    if (tempClick.current || tempClick.current === 0){
+      const prevNode = document.getElementById(tempClick.current);
+      prevNode.style.borderColor = "black";
+    }
+  }
   
 //turn on node box
-  useEffect(()=>{
-if (demo>1){
+  useEffect(() => {
+  if (demo>1) {
     setBoxVisibility("visible");
-}
-
-  },[textBox])
+    }
+  }, [textBox])
 
   useEffect(() => {
     setVariable((x) => x + 1);
@@ -291,13 +307,12 @@ if (demo>1){
           {array}
           {array2}
           <button className= 'textBox' style={{visibility: boxVisibility}}>
-          <button onClick={()=>setBoxVisibility("hidden")} className="xButton">x</button>
+          <button onClick={()=>redX()} className="xButton">x</button>
           {textBox}
           </button>
         </div>
       </div>      
       <button key="Last" style={{visibility: 'hidden'}}></button>
-
     </div>
   );
 };

@@ -18,13 +18,12 @@
 // console.log(current);
 
 
-const rootNode = Object.values(window.document.body.children[0])[0];
+// const rootNode = Object.values(window.document.body.children[0])[0];
 
 
-// // CONSOLE.LOG THE ROOT FIBER NODE FROM THE CONSOLE OF THE APP VIA SCRIPT.JS
-// // THIS SCRIPT ALSO SEEMS TO RUN TWICE IN THE CONSOLE EACH INITIALIZATION OF THE APP AND EXTENSION -- WHY?
-// // FIRST IT LOGS AS undefined, THEN THE SCRIPT FROM APP.JSX RUNS, THEN THIS SCRIPT RUNS AGAIN WITH THE ROOT NODE.
-console.log('This is the root node from script.js');
-console.log('this is coming from script.js')
-console.log(rootNode);
-console.log('this is coming from script.js')
+// CONSOLE.LOG THE ROOT FIBER NODE FROM THE CONSOLE OF THE APP VIA SCRIPT.JS
+// THIS SCRIPT ALSO SEEMS TO RUN TWICE IN THE CONSOLE EACH INITIALIZATION OF THE APP AND EXTENSION -- WHY?
+//  FIRST IT LOGS AS undefined, THEN THE SCRIPT FROM APP.JSX RUNS, THEN THIS SCRIPT RUNS AGAIN WITH THE ROOT NODE.
+// console.log('This is the root node from script.js');
+// console.log(rootNode);
+

@@ -108,3 +108,4 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 ## How to Contribute
 Feel free to fork our repo, add or fix features, and send pull requests! Our application is growing each day, and we always have an open mind to others’ input on bug fixes and additions. If you have ideas for stretch features, or wish to contribute to the already planned ones, we’d love your input. After all, open source is love!
+
