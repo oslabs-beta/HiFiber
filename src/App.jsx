@@ -257,12 +257,15 @@ function demoButton() {
           0: "Functional Component",
           1: "Class Copmonent",
           5: "HTML Element",
-          6: "Text node"
+          6: "Text Node",
+          7: "Text Node"
+
          }
          let tempVal= nodeTracker[j].tag;
 
          modalArr.push(<div>tag: {tagRef[tempVal]} </div>)
           setTextBox(modalArr)
+          console.log(tempVal)
 
         }
  
