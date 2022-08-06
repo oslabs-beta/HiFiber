@@ -20,16 +20,16 @@ function demoButton() {
 }
 
 //Quits out of node text box
-  useEffect(() =>
-    window.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") {
-        setBoxVisibility("hidden");
-        if (tempClick.current || tempClick.current === 0) {
-          const prevNode = document.getElementById(tempClick.current);
-          prevNode.style.borderColor = "black";
-        }
-      }
-    }), []);
+  // useEffect(() =>
+  //   window.addEventListener("keydown", (e) => {
+  //     if (e.key === "Escape") {
+  //       setBoxVisibility("hidden");
+  //       if (tempClick.current || tempClick.current === 0) {
+  //         const prevNode = document.getElementById(tempClick.current);
+  //         prevNode.style.borderColor = "black";
+  //       }
+  //     }
+  //   }), []);
 
 
 //Traverses the fibernode starting at the root node.
@@ -40,6 +40,7 @@ function demoButton() {
       //NOT IMPORTANT for DEV TOOL, only neccesarry for demo application
       if (variable == 2) {
         let current = newObj._owner;
+        console.log(current)
         const head = current;        
         class NodeMaker {
           constructor(key, x, y, duration, tag, lineNumber, parent, type, alternate) {
@@ -243,7 +244,7 @@ function demoButton() {
             <h2 style={{ marginTop: "-10px" }}>
               Type: {nodeTracker[j].type}
             </h2>,
-            <div>key: {nodeTracker[j].key} </div>, <div>duration: {nodeTracker[j].duration} </div>, <div>tag: {nodeTracker[j].tag} </div>, <div>lineNumber: {nodeTracker[j].lineNumber} </div>, <div>parent: {nodeTracker[j].parent} </div>);
+            <div>key: {nodeTracker[j].key} </div>, <div>duration: {nodeTracker[j].duration} </div>, <div>lineNumber: {nodeTracker[j].lineNumber} </div>, <div>parent: {nodeTracker[j].parent} </div>);
           
          if (nodeTracker[j].duration===0) {
           modalArr.push(<div style={{color: "gold", marginTop: "20px", marginLeft: "87px", position: "absolute", opacity: ".8"}}>Idle</div>)
@@ -251,9 +252,21 @@ function demoButton() {
          if (nodeTracker[j].duration!=0) {
           modalArr.push(<div style={{color: "green", marginTop: "20px", marginLeft: "75px", position: "absolute"}}>Active</div>)
          }
-          setTextBox(modalArr)
-        }
 
+         const tagRef= {
+          0: "Functional Component",
+          1: "Class Copmonent",
+          5: "HTML Element",
+          6: "Text node"
+         }
+         let tempVal= nodeTracker[j].tag;
+
+         modalArr.push(<div>tag: {tagRef[tempVal]} </div>)
+          setTextBox(modalArr)
+
+        }
+ 
+        
         setArray(nodeList);
         setArray2(lineList);
       } 
