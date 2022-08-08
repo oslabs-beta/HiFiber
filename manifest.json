@@ -26,18 +26,18 @@
     "host_permissions": ["<all_urls>"],
     
     "action": {
-        "default_popup": "popup.html", 
+        "default_popup": "/devtools/popup.html",
         "default_icon": {
-            "16": "/assets/images/hifiber-16-new.png",
-            "32": "/assets/images/hifiber-32-new.png",
-            "48": "/assets/images/hifiber-48-new.png",
-            "128": "/assets/images/hifiber-128-new.png"
+            "16": "/assets/hifiber-16-new.png",
+            "32": "/assets/hifiber-32-new.png",
+            "48": "/assets/hifiber-48-new.png",
+            "128": "/assets/hifiber-128-new.png"
       }
     }, 
     "icons": {
-        "16": "/assets/images/hifiber-16-new.png",
-        "32": "/assets/images/hifiber-32-new.png",
-        "48": "/assets/images/hifiber-48-new.png",
-        "128": "/assets/images/hifiber-128-new.png"
+        "16": "/assets/hifiber-16-new.png",
+        "32": "/assets/hifiber-32-new.png",
+        "48": "/assets/hifiber-48-new.png",
+        "128": "/assets/hifiber-128-new.png"
       }
   }
