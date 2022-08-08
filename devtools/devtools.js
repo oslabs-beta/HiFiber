@@ -1,6 +1,6 @@
 chrome.devtools.panels.create(
   'HiFiber',
-  '/images/hifiber_16.png',
-  'panel.html',
+  '/assets/hifiber_16.png',
+  'devtools/panel.html',
   () => {}
 );

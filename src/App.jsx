@@ -14,22 +14,22 @@ const App = () => {
   const nullArrTracker = useRef(0);
   const newObj = <App />;
 
-  
+
 function demoButton() {
   setDemo(2);
 }
 
-//Quits out of node text box
-  // useEffect(() =>
-  //   window.addEventListener("keydown", (e) => {
-  //     if (e.key === "Escape") {
-  //       setBoxVisibility("hidden");
-  //       if (tempClick.current || tempClick.current === 0) {
-  //         const prevNode = document.getElementById(tempClick.current);
-  //         prevNode.style.borderColor = "black";
-  //       }
-  //     }
-  //   }), []);
+// Quits out of node text box
+  useEffect(() =>
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        setBoxVisibility("hidden");
+        if (tempClick.current || tempClick.current === 0) {
+          const prevNode = document.getElementById(tempClick.current);
+          prevNode.style.borderColor = "black";
+        }
+      }
+    }), []);
 
 
 //Traverses the fibernode starting at the root node.
@@ -38,7 +38,7 @@ function demoButton() {
 //the information card contains information about the node and is displayed by clicking on the nodes
   useEffect(() => {
       //NOT IMPORTANT for DEV TOOL, only neccesarry for demo application
-      if (variable == 2) {
+      if (variable === 2) {
         let current = newObj._owner;
         console.log(current)
         const head = current;        
@@ -84,7 +84,7 @@ function demoButton() {
           >
             <b style={{ fontSize: '12px' }}>APP</b>
             {current.type}
-          </button>,
+          </button>,q
         ];
 
         current = current.child;
@@ -311,7 +311,7 @@ function demoButton() {
         </div>
         <button
           onClick={() => {
-            demoButton();
+            // demoButton();
           }}
           key="Add"
           className='demo'
