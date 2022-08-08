@@ -13,7 +13,7 @@ function Tree(
     label, 
     title, 
     link, 
-    linkTarget = '_blank', /
+    linkTarget = '_blank',
     width = 640, 
     height, 
     r = 3, 
