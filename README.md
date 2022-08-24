@@ -9,8 +9,6 @@
 <div align="center">
   <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/oslabs-beta/HiFiber">
   <img alt="GitHub" src="https://img.shields.io/github/license/oslabs-beta/HiFiber">
-  <img alt="GitHub manifest version (path)" src="https://img.shields.io/github/manifest-json/v/oslabs-beta/HiFiber/dev">
-  <img alt="GitHub all releases" src="https://img.shields.io/github/downloads/oslabs-beta/HiFiber/total">
 </div>
 <br/><br/>
 
